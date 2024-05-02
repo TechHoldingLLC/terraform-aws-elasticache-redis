@@ -2,11 +2,6 @@
 #  elasticache/variables.tf  #
 ##############################
 
-variable "automatic_failover_enabled" {
-  description = "Automatic failover flag"
-  type        = bool
-}
-
 variable "apply_immediately" {
   description = "Specifies whether any modifications are applied immediately, or during the next maintenance window."
   type        = bool

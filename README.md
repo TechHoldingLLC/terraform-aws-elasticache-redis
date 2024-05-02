@@ -51,3 +51,7 @@ No modules.
 | <a name="output_endpoint"></a> [endpoint](#output\_endpoint) | n/a |
 | <a name="output_port"></a> [port](#output\_port) | n/a |
 | <a name="output_url"></a> [url](#output\_url) | n/a |
+
+## License
+
+Apache 2 Licensed. See [LICENSE](https://github.com/TechHoldingLLC/terraform-aws-elasticache-redis/blob/main/LICENSE) for full details.

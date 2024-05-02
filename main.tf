@@ -9,7 +9,7 @@ locals {
 
 resource "aws_elasticache_replication_group" "redis" {
   multi_az_enabled           = var.multi_az_enabled
-  automatic_failover_enabled = var.multi_az_enabled ? true : var.automatic_failover_enabled
+  automatic_failover_enabled = var.multi_az_enabled ? true : false
   apply_immediately          = var.apply_immediately
   replication_group_id       = var.name
   description                = length(var.description) > 0 ? var.description : "${replace((var.name), "-", " ")}"
