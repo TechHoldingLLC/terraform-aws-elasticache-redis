@@ -13,3 +13,7 @@ output "port" {
 output "url" {
   value = local.url
 }
+
+output "member_clusters" {
+  value = aws_elasticache_replication_group.redis.member_clusters
+}

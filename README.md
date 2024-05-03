@@ -49,6 +49,7 @@ No modules.
 | Name | Description |
 |------|-------------|
 | <a name="output_endpoint"></a> [endpoint](#output\_endpoint) | n/a |
+| <a name="output_member_clusters"></a> [member\_clusters](#output\_member\_clusters) | n/a |
 | <a name="output_port"></a> [port](#output\_port) | n/a |
 | <a name="output_url"></a> [url](#output\_url) | n/a |
 
