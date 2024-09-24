@@ -24,6 +24,7 @@ resource "aws_elasticache_replication_group" "redis" {
   security_group_ids = [
     var.security_group_id
   ]
+  user_group_ids             = var.create_user ? [aws_elasticache_user_group.user_group[0].id] : []
   maintenance_window         = var.maintenance_window
   auto_minor_version_upgrade = var.auto_minor_version_upgrade
 
@@ -67,5 +68,25 @@ resource "aws_elasticache_parameter_group" "custom" {
 
   lifecycle {
     create_before_destroy = true
+  }
+}
+
+resource "aws_elasticache_user" "user" {
+  for_each      = var.create_user ? var.users : []
+  user_id       = each.value.user_id
+  user_name     = each.value.user_name
+  access_string = each.value.access_string
+  engine        = "REDIS"
+  passwords     = each.value.passwords
+}
+
+resource "aws_elasticache_user_group" "user_group" {
+  count         = var.create_user ? 1 : 0
+  engine        = "REDIS"
+  user_group_id = var.user_group_id
+  user_ids      = [aws_elasticache_user.user.*.user_id]
+
+  lifecycle {
+    ignore_changes = [user_ids]
   }
 }

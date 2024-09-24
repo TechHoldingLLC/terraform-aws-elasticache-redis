@@ -14,6 +14,12 @@ variable "auto_minor_version_upgrade" {
   default     = null
 }
 
+variable "create_user" {
+  description = "Specifies whether to create users"
+  type        = bool
+  default     = false
+}
+
 variable "custom_parameters" {
   description = "Custom parameters of parameter group"
   type        = list(any)
@@ -76,4 +82,16 @@ variable "security_group_id" {
 
 variable "subnet_ids" {
   description = "Subnet ids for subnet group"
+}
+
+variable "users" {
+  description = "List of users to create"
+  type        = list[any]
+  default     = []
+}
+
+variable "user_group_id" {
+  description = "user group id"
+  type        = string
+  default     = ""
 }
